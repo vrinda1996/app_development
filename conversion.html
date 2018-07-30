@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Temperature Convertor</title>
+</head>
+
+<body>
+	<form name="converter">
+		<center>
+			<h3>Temperature Convertor</h3>
+			Celsius: <input type="text" name="celsius" onChange="CelsiusConverter()"><br /><br>
+			Fahrenheit: <input type="text" name="fahrenheit" onChange="FahrenheitConverter()"><br /><br>
+			Kelvin: <input type="text" name="kelvin" onChange="KelvinConverter()"><br /><br>
+			<input type="button" value="Convert!" />
+		</center>
+	</form>
+<script type="text/javascript">
+function CelsiusConverter(){
+document.converter.fahrenheit.value = (document.converter.celsius.value * 1.8) + 32
+document.converter.kelvin.value = document.converter.celsius.value * 1 + 273.15
+}
+function FahrenheitConverter(){
+document.converter.celsius.value = (document.converter.fahrenheit.value - 32) / 1.8
+document.converter.kelvin.value=((document.converter.fahrenheit.value - 32)/1.8)+273.15
+}
+function KelvinConverter(){
+document.converter.celsius.value = document.converter.kelvin.value - 273.15
+document.converter.fahrenheit.value=((document.converter.kelvin.value - 273.15)*1.8)+32
+}
+</script>
+<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    
+</body>
+</html>
